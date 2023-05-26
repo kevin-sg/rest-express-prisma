@@ -50,16 +50,16 @@ export class PostService {
 
 	public async getPostById(id: number): Promise<Post | null> {
 		try {
-			const user = await prismaRepository.post.findUnique({
+			const hasPost = await prismaRepository.post.findUnique({
 				where: { id: Number(id) },
 				include: { user: { select: { id: true, email: true } } },
 			});
-			if (!user) {
+			if (!hasPost) {
 				prismaRepository.$disconnect();
 				throw new HttpException(HttpStatusCode[422], HttpStatusCode.UNPROCESSABLE_ENTITY);
 			}
 
-			return user;
+			return hasPost;
 		} catch (err) {
 			prismaRepository.$disconnect();
 			throw err;
@@ -67,7 +67,6 @@ export class PostService {
 	}
 
 	public async updatePost(userId: number, postId: number, postData: PostModel): Promise<Post> {
-		console.log(userId);
 		try {
 			const hasPost = await this.getPostById(Number(postId));
 			if (hasPost.userId !== Number(userId)) {
