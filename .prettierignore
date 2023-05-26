@@ -1,0 +1,10 @@
+
+# dev
+node_modules
+prisma
+build
+dist
+
+# files
+*-lock.*
+tsconfig.*

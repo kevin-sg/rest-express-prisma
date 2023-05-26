@@ -1,0 +1,59 @@
+{
+	"name": "rest-express-prisma",
+	"version": "1.0.0",
+	"description": "Node.js, Express.js & Prisma",
+	"main": "index.js",
+	"scripts": {
+		"postinstall": "tsc",
+		"start": "node build/src/index.js",
+		"dev": "tsnd -r tsconfig-paths/register src/index.ts",
+		"build": "tsc",
+		"prisma:format": "prisma generate",
+		"prisma:generate": "prisma generate",
+		"prisma:migrate": "prisma migrate dev",
+		"prisma:seed": "prisma db seed",
+		"prisma:studio": "prisma studio",
+		"prisma:reset": "prisma migrate reset",
+		"prettier:write": "prettier --write .",
+		"prettier:check": "prettier --check ."
+	},
+	"prisma": {
+		"seed": "tsnd -r tsconfig-paths/register prisma/seed.ts"
+	},
+	"dependencies": {
+		"@prisma/client": "^4.14.1",
+		"bcrypt": "^5.1.0",
+		"class-sanitizer": "^1.0.1",
+		"class-transformer": "^0.5.1",
+		"class-validator": "^0.14.0",
+		"cookie-parser": "^1.4.6",
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
+		"jsonwebtoken": "^9.0.0"
+	},
+	"devDependencies": {
+		"@types/bcrypt": "^5.0.0",
+		"@types/cookie-parser": "^1.4.3",
+		"@types/cors": "^2.8.13",
+		"@types/express": "4.17.17",
+		"@types/express-serve-static-core": "4.17.35",
+		"@types/jsonwebtoken": "^9.0.2",
+		"@types/morgan": "^1.9.4",
+		"@types/node": "^20.2.1",
+		"morgan": "^1.10.0",
+		"prettier": "^2.8.8",
+		"prisma": "^4.14.1",
+		"ts-node-dev": "^2.0.0",
+		"tsconfig-paths": "^4.2.0",
+		"typescript": "^5.0.4",
+		"winston": "^3.8.2"
+	},
+	"keywords": [
+		"node",
+		"express",
+		"prisma"
+	],
+	"author": "kevin S.",
+	"license": "MIT"
+}
